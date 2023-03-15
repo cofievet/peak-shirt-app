@@ -14,6 +14,7 @@ Run the dev server:
 
 ```shell
 yarn start
+yarn start:api
 ```
 
 Make your move, develop your new feature, then commit with:
