@@ -2,18 +2,18 @@ import {
   AppBar,
   Badge,
   Box,
+  Grid,
   IconButton,
   Toolbar,
   Typography,
 } from "@mui/material";
 import { Mail } from "@mui/icons-material";
-import logo from "../images/1.jpg";
-import Image from "mui-image";
+import TshirtCard from "../TshirtCard";
 
 export default function HomePage() {
   return (
     <>
-      <AppBar position="static">
+      <AppBar position="sticky">
         <Toolbar>
           <Typography variant="h6" component="h1">
             Peak Shirt!
@@ -32,8 +32,51 @@ export default function HomePage() {
           </Box>
         </Toolbar>
       </AppBar>
-      <Image src={logo} alt="Peak Shirt Logo" duration="0"></Image>
-      <Typography>Construction en cours</Typography>
+
+      <Grid container spacing={1}>
+        <Grid item xs={6}>
+          <TshirtCard></TshirtCard>
+        </Grid>
+        <Grid item xs={6}>
+          <TshirtCard></TshirtCard>
+        </Grid>
+        <Grid item xs={6}>
+          <TshirtCard></TshirtCard>
+        </Grid>
+        <Grid item xs={6}>
+          <TshirtCard></TshirtCard>
+        </Grid>
+        <Grid item xs={6}>
+          <TshirtCard></TshirtCard>
+        </Grid>
+        <Grid item xs={6}>
+          <TshirtCard></TshirtCard>
+        </Grid>
+        <Grid item xs={6}>
+          <TshirtCard></TshirtCard>
+        </Grid>
+        <Grid item xs={6}>
+          <TshirtCard></TshirtCard>
+        </Grid>
+        <Grid item xs={6}>
+          <TshirtCard></TshirtCard>
+        </Grid>
+        <Grid item xs={6}>
+          <TshirtCard></TshirtCard>
+        </Grid>
+        <Grid item xs={6}>
+          <TshirtCard></TshirtCard>
+        </Grid>
+        <Grid item xs={6}>
+          <TshirtCard></TshirtCard>
+        </Grid>
+        <Grid item xs={6}>
+          <TshirtCard></TshirtCard>
+        </Grid>
+        <Grid item xs={6}>
+          <TshirtCard></TshirtCard>
+        </Grid>
+      </Grid>
     </>
   );
 }
