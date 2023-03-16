@@ -5,7 +5,7 @@ import React from "react";
 
 export default function StyleFilters() {
   const { isLoading, styles } = useStyles();
-  const [selectedStyles, selectStyles] = React.useState([1, 3]);
+  const [selectedStyles] = React.useState([1, 3]);
 
   if (isLoading) {
     return <CircularProgress />;
@@ -23,7 +23,7 @@ export default function StyleFilters() {
           key={id}
           label={name}
           component="li"
-          variant="outlined"
+          variant={selectedStyles.includes(id) ? "filled" : "outlined"}
           onClick={() => {
             console.log(`Click: ${id}`);
           }}
