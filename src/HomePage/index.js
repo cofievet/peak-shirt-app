@@ -11,7 +11,7 @@ import {
 import { Mail } from "@mui/icons-material";
 import TshirtCard from "../TshirtCard";
 import React from "react";
-import { useTshirts } from "hooks";
+import { useTshirts } from "core/hooks";
 
 export default function HomePage() {
   const { isLoading, tshirts } = useTshirts();
