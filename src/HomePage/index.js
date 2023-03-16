@@ -26,7 +26,7 @@ export default function HomePage() {
 
   return (
     <>
-      <AppBar position="sticky">
+      <AppBar>
         <Toolbar>
           <Typography variant="h6" component="h1">
             Peak Shirt!
@@ -49,7 +49,7 @@ export default function HomePage() {
       <Grid container spacing={1}>
         {tshirts.map(({ id }) => (
           <Grid item xs={6} key={id}>
-            <TshirtCard></TshirtCard>
+            <TshirtCard />
           </Grid>
         ))}
       </Grid>
