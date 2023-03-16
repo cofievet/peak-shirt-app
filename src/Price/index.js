@@ -1,0 +1,13 @@
+import { number, string } from "prop-types";
+
+export default function Price({ value = 0, currency = "EUR" }) {
+  return Intl.NumberFormat(navigator?.language || "fr", {
+    style: "currency",
+    currency,
+  }).format(value);
+}
+
+Price.propTypes = {
+  value: number,
+  currency: string,
+};
