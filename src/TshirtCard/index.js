@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import Price from "Price";
 import { number, string, oneOf } from "prop-types";
+import { Link } from "react-router-dom";
 
 export default function TshirtCard({
   id,
@@ -20,7 +21,7 @@ export default function TshirtCard({
 }) {
   return (
     <Card>
-      <CardActionArea>
+      <CardActionArea LinkComponent={Link} to={`/tshirts/${id}`}>
         <CardMedia
           alt={name}
           component="img"
