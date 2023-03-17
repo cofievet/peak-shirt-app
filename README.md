@@ -38,3 +38,10 @@ yarn commit
 ## CRA
 
 [Official CRA doc](./docs/CRA.md).
+
+## Todo
+
+- [ ] CORS
+- [ ] Design de la page Tshirt
+- [ ] Data dynamic de Tshirt page
+- [ ] Bouton ajout au panier (static)
