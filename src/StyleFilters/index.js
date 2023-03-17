@@ -12,6 +12,10 @@ export default function StyleFilters() {
     return <CircularProgress />;
   }
 
+  const selectFilter = (id) => () => {
+    toggle(id);
+  };
+
   return (
     <Stack
       direction="row"
@@ -25,9 +29,7 @@ export default function StyleFilters() {
           label={name}
           component="li"
           variant="outlined"
-          onClick={() => {
-            toggle(id);
-          }}
+          onClick={selectFilter(id)}
           color={selectedStyles.has(id) ? "primary" : "default"}
         />
       ))}
