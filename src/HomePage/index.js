@@ -8,21 +8,24 @@ import {
   Toolbar,
   Typography,
 } from "@mui/material";
-import { Mail } from "@mui/icons-material";
+import { ShoppingCart } from "@mui/icons-material";
 import TshirtCard from "../TshirtCard";
 import React from "react";
 import { useTshirts } from "core/hooks";
 import StyleFilters from "StyleFilters";
+import { useStyleFilters } from "core/contexts";
 
 export default function HomePage() {
-  const { isLoading, tshirts } = useTshirts();
+  const [selectedStyles] = useStyleFilters();
+
+  const { isLoading, tshirts } = useTshirts({ styleIds: selectedStyles });
 
   return (
     <>
       <AppBar>
         <Toolbar>
           <Typography variant="h6" component="h1">
-            Peak Shirt!
+            Peak Shirt
           </Typography>
           <Box sx={{ flexGrow: 1 }}></Box>
           <Box sx={{ display: { md: "flex" } }}>
@@ -32,7 +35,7 @@ export default function HomePage() {
               color="inherit"
             >
               <Badge badgeContent={4} color="primary">
-                <Mail />
+                <ShoppingCart />
               </Badge>
             </IconButton>
           </Box>
@@ -46,7 +49,7 @@ export default function HomePage() {
           <StyleFilters />
           <Grid container spacing={1}>
             {tshirts.map((tshirt) => (
-              <Grid item xs={6} key={tshirt.id}>
+              <Grid item xs={6} style={{ display: "flex" }} key={tshirt.id}>
                 <TshirtCard {...tshirt} />
               </Grid>
             ))}

@@ -7,5 +7,7 @@ const API_BASE_URL = config.get(
 );
 
 export const styles = {
-  getList: () => () => fetch(`${API_BASE_URL}/styles`).then(responseToJson),
+  getList: () => () => {
+    return fetch(`${API_BASE_URL}/styles`).then(responseToJson);
+  },
 };

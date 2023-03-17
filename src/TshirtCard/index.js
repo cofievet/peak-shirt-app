@@ -27,16 +27,20 @@ export default function TshirtCard({
           height="140"
           image={`/images/${imageUrl}`}
         />
-        <CardContent>
+        <CardContent style={{ display: "flex", flexDirection: "column" }}>
           <Typography gutterBottom variant="h5" component="div">
             {name}
           </Typography>
           <Typography variant="body2" color="text.secondary">
             {description}
           </Typography>
-          <Grid container spacing={2} justifyContent={"space-between"}>
+          <Grid container spacing={1} justifyContent={"space-between"}>
             <Grid item>
-              <Chip label={`Taille : ${size}`} size="small" />
+              <Chip
+                style={{ fontWeight: "bold" }}
+                label={`Taille : ${size}`}
+                size="small"
+              />
             </Grid>
             <Grid item>
               <Typography>

@@ -6,5 +6,20 @@ import { useQuery } from "react-query";
 export default function useStyles() {
   const queryResponse = useQuery("styles", styles.getList());
 
-  return { ...queryResponse, styles: queryResponse.data };
+  return {
+    ...queryResponse,
+    styles: queryResponse.data?.sort((a, b) => {
+      const nameA = a.name.toUpperCase();
+      const nameB = b.name.toUpperCase();
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {
+        return 1;
+      }
+
+      // names must be equal
+      return 0;
+    }),
+  };
 }
