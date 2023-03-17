@@ -2,10 +2,11 @@ import { Chip, CircularProgress } from "@mui/material";
 import { Stack } from "@mui/system";
 import useStyles from "core/hooks/useStyles";
 import React from "react";
+import { useSet } from "react-use";
 
 export default function StyleFilters() {
   const { isLoading, styles } = useStyles();
-  const [selectedStyles] = React.useState([1, 3]);
+  const [selectedStyles, { toggle }] = useSet();
 
   if (isLoading) {
     return <CircularProgress />;
@@ -23,11 +24,11 @@ export default function StyleFilters() {
           key={id}
           label={name}
           component="li"
-          variant={selectedStyles.includes(id) ? "filled" : "outlined"}
+          variant="outlined"
           onClick={() => {
-            console.log(`Click: ${id}`);
+            toggle(id);
           }}
-          color={selectedStyles.includes(id) ? "primary" : "default"}
+          color={selectedStyles.has(id) ? "primary" : "default"}
         />
       ))}
     </Stack>
