@@ -10,12 +10,17 @@ import {
 } from "@mui/material";
 import { CtaButton } from "ds/atoms";
 import { BottomCallToActions } from "ds/molecules";
+import { Price } from "ds/atoms";
 import { number } from "prop-types";
 
 const TotalPrice = ({ price }) => {
   return (
     <Typography>
-      Total price: <strong>{price}€</strong>
+      Total price:
+      <strong>
+        {" "}
+        <Price value={price} />
+      </strong>
     </Typography>
   );
 };
