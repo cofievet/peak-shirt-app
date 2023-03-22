@@ -18,13 +18,16 @@ export function useCart() {
  * @param {number} action.payload.id
  * @returns
  */
-const reduce = (cart, action) => {
+const cartReduce = (cart, action) => {
   switch (action.type) {
-    // case "add":
-    //   return [];
+    case "add":
+      const { cardItem } = action.payload;
+
+      return [...cart, cardItem];
 
     case "remove":
       const { id } = action.payload;
+
       return cart.filter(({ id: tshirtId }) => tshirtId !== id);
 
     case "purchase":
@@ -36,12 +39,7 @@ const reduce = (cart, action) => {
 };
 
 export function CartProvider({ children }) {
-  const [cart, dispatch] = React.useReducer(reduce, [
-    { id: 1, price: 123.6, name: "Tshirt 1", imageUrl: "1.jpg", quantity: 2 },
-    { id: 2, price: 85.4, name: "Tshirt 2", imageUrl: "2.jpg", quantity: 1 },
-    { id: 3, price: 85.4, name: "Tshirt 3", imageUrl: "3.jpg", quantity: 2 },
-    { id: 4, price: 85.4, name: "Tshirt 4", imageUrl: "4.jpg", quantity: 5 },
-  ]);
+  const [cart, dispatch] = React.useReducer(cartReduce, []);
 
   const isCartEmpty = cart.length === 0;
   const cartQuatity = cart.reduce(
@@ -52,12 +50,15 @@ export function CartProvider({ children }) {
   const purchaseCart = () => dispatch({ type: "purchase" });
   const removeFromCart = (id) => () =>
     dispatch({ type: "remove", payload: { id } });
+  const addToCart = (cardItem) => () => {
+    dispatch({ type: "add", payload: { cardItem } });
+  };
 
   return (
     <CartContext.Provider
       value={[
         { cart, isCartEmpty, cartQuatity },
-        { purchaseCart, removeFromCart },
+        { purchaseCart, removeFromCart, addToCart },
       ]}
     >
       {children}
