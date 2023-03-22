@@ -4,7 +4,7 @@ import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import { CssBaseline } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
-import { FilterProvider } from "core/contexts";
+import { CartProvider, FilterProvider } from "core/contexts";
 import ErrorPage from "ErrorPage";
 import Layout from "Layout";
 import { QueryClientProvider, QueryClient } from "react-query";
@@ -50,8 +50,10 @@ export default function App() {
     <QueryClientProvider client={queryClient}>
       <ThemeProvider theme={theme}>
         <FilterProvider>
-          <CssBaseline />
-          <RouterProvider router={router} />
+          <CartProvider>
+            <CssBaseline />
+            <RouterProvider router={router} />
+          </CartProvider>
         </FilterProvider>
       </ThemeProvider>
     </QueryClientProvider>

@@ -13,10 +13,11 @@ import { CtaButton } from "ds/atoms";
 import { BottomCallToActions } from "ds/molecules";
 import { Price } from "ds/atoms";
 import { number } from "prop-types";
+import { useCart } from "core/contexts";
 
 const TotalPrice = ({ price }) => {
   return (
-    <Typography>
+    <Typography sx={{ marginTop: 2 }}>
       Total price:
       <strong>
         {" "}
@@ -31,12 +32,17 @@ TotalPrice.propTypes = {
 };
 
 export default function CartPage() {
-  const cart = [
-    { id: 1, price: 123.6, name: "Tshirt 1", imageUrl: "1.jpg", quantity: 2 },
-    { id: 2, price: 85.4, name: "Tshirt 2", imageUrl: "2.jpg", quantity: 1 },
-    { id: 3, price: 85.4, name: "Tshirt 3", imageUrl: "3.jpg", quantity: 2 },
-    { id: 4, price: 85.4, name: "Tshirt 4", imageUrl: "4.jpg", quantity: 5 },
-  ];
+  const [cart, { purchaseCart }] = useCart();
+
+  const cartEmpty = cart.length === 0;
+
+  if (cartEmpty) {
+    return (
+      <Typography textAlign={"center"} variant="h4">
+        Go Shopping !
+      </Typography>
+    );
+  }
 
   return (
     <>
@@ -74,7 +80,11 @@ export default function CartPage() {
         ))}
       </List>
       <BottomCallToActions secondary={<TotalPrice price={269.68} />}>
-        <CtaButton startIcon={<ShoppingCartCheckout />} fullWidth>
+        <CtaButton
+          startIcon={<ShoppingCartCheckout />}
+          fullWidth
+          onClick={purchaseCart}
+        >
           Purchase
         </CtaButton>
       </BottomCallToActions>
