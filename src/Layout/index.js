@@ -5,9 +5,7 @@ import { useCart } from "core/contexts";
 import { Link, Outlet } from "react-router-dom";
 
 export default function Layout() {
-  const [cart] = useCart();
-
-  const isCartEmpty = cart.length === 0;
+  const [{ isCartEmpty, cartQuatity }] = useCart();
 
   return (
     <>
@@ -27,7 +25,7 @@ export default function Layout() {
               LinkComponent={Link}
               to="/cart"
             >
-              <Badge badgeContent={cart.length} color="primary">
+              <Badge badgeContent={cartQuatity} color="primary">
                 {isCartEmpty ? <ShoppingCartOutlined /> : <ShoppingCart />}
               </Badge>
             </IconButton>

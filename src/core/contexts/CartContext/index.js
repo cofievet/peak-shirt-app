@@ -32,9 +32,15 @@ export function CartProvider({ children }) {
   ]);
 
   const purchaseCart = () => dispatch({ type: "purchase" });
-
+  const isCartEmpty = cart.length === 0;
+  const cartQuatity = cart.reduce(
+    (quantity, item) => item.quantity + quantity,
+    0
+  );
   return (
-    <CartContext.Provider value={[cart, { purchaseCart }]}>
+    <CartContext.Provider
+      value={[{ cart, isCartEmpty, cartQuatity }, { purchaseCart }]}
+    >
       {children}
     </CartContext.Provider>
   );
