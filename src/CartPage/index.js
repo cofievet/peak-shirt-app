@@ -32,7 +32,7 @@ TotalPrice.propTypes = {
 };
 
 export default function CartPage() {
-  const [{ cart, isCartEmpty }, { purchaseCart }] = useCart();
+  const [{ cart, isCartEmpty }, { purchaseCart, removeFromCart }] = useCart();
 
   if (isCartEmpty) {
     return (
@@ -49,7 +49,11 @@ export default function CartPage() {
           <ListItem
             key={id}
             secondaryAction={
-              <IconButton edge="end" aria-label="delete">
+              <IconButton
+                edge="end"
+                aria-label="delete"
+                onClick={removeFromCart(id)}
+              >
                 <Delete />
               </IconButton>
             }
