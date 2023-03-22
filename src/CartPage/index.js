@@ -34,9 +34,9 @@ TotalPrice.propTypes = {
 export default function CartPage() {
   const [cart, { purchaseCart }] = useCart();
 
-  const cartEmpty = cart.length === 0;
+  const isCartEmpty = cart.length === 0;
 
-  if (cartEmpty) {
+  if (isCartEmpty) {
     return (
       <Typography textAlign={"center"} variant="h4">
         Go Shopping !
