@@ -42,6 +42,6 @@ yarn commit
 ## Todo
 
 - [ ] CORS
-- [ ] Design de la page Tshirt
-- [ ] Data dynamic de Tshirt page
-- [ ] Bouton ajout au panier (static)
+- [x] Design de la page Tshirt
+- [x] Data dynamic de Tshirt page
+- [x] Bouton ajout au panier (static)
