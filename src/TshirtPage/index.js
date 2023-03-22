@@ -1,8 +1,9 @@
 import { AddShoppingCart } from "@mui/icons-material";
-import { Button, CircularProgress, Paper } from "@mui/material";
+import { CircularProgress, Paper } from "@mui/material";
 import { useTshirt } from "core/hooks";
 import { useParams } from "react-router-dom";
 import TshirtCard from "TshirtCard";
+import { CtaButton } from "ds/atoms";
 
 export default function TshirtPage() {
   let { tshirtId: id } = useParams();
@@ -25,15 +26,9 @@ export default function TshirtPage() {
         }}
         square
       >
-        <Button
-          variant="contained"
-          color="success"
-          size="large"
-          startIcon={<AddShoppingCart />}
-          fullWidth
-        >
+        <CtaButton startIcon={<AddShoppingCart />} fullWidth>
           Add to cart
-        </Button>
+        </CtaButton>
       </Paper>
     </>
   );
