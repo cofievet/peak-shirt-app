@@ -10,6 +10,7 @@ import Layout from "Layout";
 import { QueryClientProvider, QueryClient } from "react-query";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import TshirtPage from "TshirtPage";
+import CartPage from "CartPage";
 
 import HomePage from "../HomePage";
 import theme from "./theme";
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: "/tshirts/:tshirtId",
         element: <TshirtPage />,
+      },
+      {
+        path: "/cart",
+        element: <CartPage />,
       },
     ],
   },
