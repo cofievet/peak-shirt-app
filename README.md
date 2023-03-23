@@ -45,7 +45,6 @@ Le Desygn System (DS) sera mis en place à travers l'approche [Atomic Design](ht
 
 ## Todo
 
-- [ ] CORS
 - [x] Design de la page Tshirt
 - [x] Data dynamic de Tshirt page
 - [x] Bouton ajout au panier (static)
