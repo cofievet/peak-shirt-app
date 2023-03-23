@@ -1,6 +1,6 @@
 import { number, string } from "prop-types";
 
-export default function Price({ value = 0, currency = "EUR" }) {
+export default function Price({ value, currency = "EUR" }) {
   return Intl.NumberFormat(navigator?.language || "fr", {
     style: "currency",
     currency,
