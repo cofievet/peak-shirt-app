@@ -8,7 +8,7 @@ const API_BASE_URL = config.get(
 
 export const tshirts = {
   getList: (styleIds) => () => {
-    const tshirtRoute = new URL("/tshirts", API_BASE_URL);
+    const tshirtRoute = `${API_BASE_URL}/tshirts`;
     const { searchParams } = tshirtRoute;
     styleIds.forEach((styleId) => {
       searchParams.append("styleId", styleId);
@@ -18,7 +18,7 @@ export const tshirts = {
   getOne:
     ({ id }) =>
     () => {
-      const tshirtRoute = new URL(`/tshirts/${id}`, API_BASE_URL);
+      const tshirtRoute = `${API_BASE_URL}/tshirts/${id}`;
       return fetch(tshirtRoute).then(responseToJson);
     },
 };
