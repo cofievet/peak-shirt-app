@@ -47,7 +47,7 @@
       "!<rootDir>/src/index.js",
       "!<rootDir>/src/App/index.js",
       "!<rootDir>/src/core/api/index.js",
-      "!<rootDir>/src/core/context/index.js",
+      "!<rootDir>/src/core/contexts/index.js",
       "!<rootDir>/src/core/hooks/index.js",
       "!<rootDir>/src/ds/atoms/index.js",
       "!<rootDir>/src/ds/molecules/index.js",

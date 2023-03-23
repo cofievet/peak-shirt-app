@@ -1,5 +1,5 @@
 import { screen } from "@testing-library/react";
-import renderWithRouter from "testUtils/renderWithoutRouter";
+import render from "testUtils/render";
 import TshirtCard from "./";
 
 const tshirt = {
@@ -13,12 +13,12 @@ const tshirt = {
 
 describe("TshirtCard", () => {
   test("without any prop, it does not render the title", () => {
-    renderWithRouter(<TshirtCard />);
+    render(<TshirtCard />);
     expect(screen.queryByRole("heading", { level: 5 })).not.toBeInTheDocument();
   });
 
   test("with correct props, it doest render the tshirt card", () => {
-    renderWithRouter(<TshirtCard {...tshirt} />);
+    render(<TshirtCard {...tshirt} />);
 
     expect(
       screen.getByRole("heading", { name: tshirt.name, level: 5 })
