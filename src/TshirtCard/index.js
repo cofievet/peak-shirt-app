@@ -19,6 +19,10 @@ export default function TshirtCard({
   size,
   price,
 }) {
+  if (!id) {
+    return "";
+  }
+
   return (
     <Card>
       <CardActionArea LinkComponent={Link} to={`/tshirts/${id}`}>
@@ -29,7 +33,7 @@ export default function TshirtCard({
           image={`/images/${imageUrl}`}
         />
         <CardContent style={{ display: "flex", flexDirection: "column" }}>
-          <Typography gutterBottom variant="h5" component="div">
+          <Typography gutterBottom variant="h5">
             {name}
           </Typography>
           <Typography variant="body2" color="text.secondary">
@@ -44,7 +48,7 @@ export default function TshirtCard({
               />
             </Grid>
             <Grid item>
-              <Typography>
+              <Typography component="h6">
                 <Price value={price} />
               </Typography>
             </Grid>
