@@ -23,4 +23,3 @@ export default createTheme({
     },
   },
 });
-// TODO A tester
