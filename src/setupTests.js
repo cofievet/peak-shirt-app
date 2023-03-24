@@ -4,7 +4,15 @@
 // learn more: https://github.com/testing-library/jest-dom
 import "@testing-library/jest-dom";
 import config from "react-global-configuration";
+import { server } from "./mocks/server.js";
 
 config.set({
-  API_BASE_URL: "//localhost:493",
+  API_BASE_URL: "http://localhost",
 });
+
+beforeAll(() => server.listen());
+// Reset any request handlers that we may add during the tests,
+// so they don't affect other tests.
+afterEach(() => server.resetHandlers());
+// Clean up after the tests are finished.
+afterAll(() => server.close());

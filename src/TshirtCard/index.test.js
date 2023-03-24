@@ -1,15 +1,7 @@
 import { screen } from "@testing-library/react";
+import { createTshirt } from "testUtils/fixtures";
 import render from "testUtils/render";
 import TshirtCard from "./";
-
-const tshirt = {
-  id: 1,
-  name: "tshirt",
-  description: "tshirt description",
-  imageUrl: "1/jpg",
-  size: "S",
-  price: 12.99,
-};
 
 describe("TshirtCard", () => {
   test("without any prop, it does not render the title", () => {
@@ -18,6 +10,8 @@ describe("TshirtCard", () => {
   });
 
   test("with correct props, it doest render the tshirt card", () => {
+    const tshirt = createTshirt();
+
     render(<TshirtCard {...tshirt} />);
 
     expect(
